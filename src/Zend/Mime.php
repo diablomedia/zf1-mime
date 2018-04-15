@@ -229,167 +229,167 @@ class Zend_Mime
      * @var array
      */
     public static $qpReplaceValues = array(
-        "=00",
-        "=01",
-        "=02",
-        "=03",
-        "=04",
-        "=05",
-        "=06",
-        "=07",
-        "=08",
-        "=09",
-        "=0A",
-        "=0B",
-        "=0C",
-        "=0D",
-        "=0E",
-        "=0F",
-        "=10",
-        "=11",
-        "=12",
-        "=13",
-        "=14",
-        "=15",
-        "=16",
-        "=17",
-        "=18",
-        "=19",
-        "=1A",
-        "=1B",
-        "=1C",
-        "=1D",
-        "=1E",
-        "=1F",
-        "=7F",
-        "=80",
-        "=81",
-        "=82",
-        "=83",
-        "=84",
-        "=85",
-        "=86",
-        "=87",
-        "=88",
-        "=89",
-        "=8A",
-        "=8B",
-        "=8C",
-        "=8D",
-        "=8E",
-        "=8F",
-        "=90",
-        "=91",
-        "=92",
-        "=93",
-        "=94",
-        "=95",
-        "=96",
-        "=97",
-        "=98",
-        "=99",
-        "=9A",
-        "=9B",
-        "=9C",
-        "=9D",
-        "=9E",
-        "=9F",
-        "=A0",
-        "=A1",
-        "=A2",
-        "=A3",
-        "=A4",
-        "=A5",
-        "=A6",
-        "=A7",
-        "=A8",
-        "=A9",
-        "=AA",
-        "=AB",
-        "=AC",
-        "=AD",
-        "=AE",
-        "=AF",
-        "=B0",
-        "=B1",
-        "=B2",
-        "=B3",
-        "=B4",
-        "=B5",
-        "=B6",
-        "=B7",
-        "=B8",
-        "=B9",
-        "=BA",
-        "=BB",
-        "=BC",
-        "=BD",
-        "=BE",
-        "=BF",
-        "=C0",
-        "=C1",
-        "=C2",
-        "=C3",
-        "=C4",
-        "=C5",
-        "=C6",
-        "=C7",
-        "=C8",
-        "=C9",
-        "=CA",
-        "=CB",
-        "=CC",
-        "=CD",
-        "=CE",
-        "=CF",
-        "=D0",
-        "=D1",
-        "=D2",
-        "=D3",
-        "=D4",
-        "=D5",
-        "=D6",
-        "=D7",
-        "=D8",
-        "=D9",
-        "=DA",
-        "=DB",
-        "=DC",
-        "=DD",
-        "=DE",
-        "=DF",
-        "=E0",
-        "=E1",
-        "=E2",
-        "=E3",
-        "=E4",
-        "=E5",
-        "=E6",
-        "=E7",
-        "=E8",
-        "=E9",
-        "=EA",
-        "=EB",
-        "=EC",
-        "=ED",
-        "=EE",
-        "=EF",
-        "=F0",
-        "=F1",
-        "=F2",
-        "=F3",
-        "=F4",
-        "=F5",
-        "=F6",
-        "=F7",
-        "=F8",
-        "=F9",
-        "=FA",
-        "=FB",
-        "=FC",
-        "=FD",
-        "=FE",
-        "=FF"
+        '=00',
+        '=01',
+        '=02',
+        '=03',
+        '=04',
+        '=05',
+        '=06',
+        '=07',
+        '=08',
+        '=09',
+        '=0A',
+        '=0B',
+        '=0C',
+        '=0D',
+        '=0E',
+        '=0F',
+        '=10',
+        '=11',
+        '=12',
+        '=13',
+        '=14',
+        '=15',
+        '=16',
+        '=17',
+        '=18',
+        '=19',
+        '=1A',
+        '=1B',
+        '=1C',
+        '=1D',
+        '=1E',
+        '=1F',
+        '=7F',
+        '=80',
+        '=81',
+        '=82',
+        '=83',
+        '=84',
+        '=85',
+        '=86',
+        '=87',
+        '=88',
+        '=89',
+        '=8A',
+        '=8B',
+        '=8C',
+        '=8D',
+        '=8E',
+        '=8F',
+        '=90',
+        '=91',
+        '=92',
+        '=93',
+        '=94',
+        '=95',
+        '=96',
+        '=97',
+        '=98',
+        '=99',
+        '=9A',
+        '=9B',
+        '=9C',
+        '=9D',
+        '=9E',
+        '=9F',
+        '=A0',
+        '=A1',
+        '=A2',
+        '=A3',
+        '=A4',
+        '=A5',
+        '=A6',
+        '=A7',
+        '=A8',
+        '=A9',
+        '=AA',
+        '=AB',
+        '=AC',
+        '=AD',
+        '=AE',
+        '=AF',
+        '=B0',
+        '=B1',
+        '=B2',
+        '=B3',
+        '=B4',
+        '=B5',
+        '=B6',
+        '=B7',
+        '=B8',
+        '=B9',
+        '=BA',
+        '=BB',
+        '=BC',
+        '=BD',
+        '=BE',
+        '=BF',
+        '=C0',
+        '=C1',
+        '=C2',
+        '=C3',
+        '=C4',
+        '=C5',
+        '=C6',
+        '=C7',
+        '=C8',
+        '=C9',
+        '=CA',
+        '=CB',
+        '=CC',
+        '=CD',
+        '=CE',
+        '=CF',
+        '=D0',
+        '=D1',
+        '=D2',
+        '=D3',
+        '=D4',
+        '=D5',
+        '=D6',
+        '=D7',
+        '=D8',
+        '=D9',
+        '=DA',
+        '=DB',
+        '=DC',
+        '=DD',
+        '=DE',
+        '=DF',
+        '=E0',
+        '=E1',
+        '=E2',
+        '=E3',
+        '=E4',
+        '=E5',
+        '=E6',
+        '=E7',
+        '=E8',
+        '=E9',
+        '=EA',
+        '=EB',
+        '=EC',
+        '=ED',
+        '=EE',
+        '=EF',
+        '=F0',
+        '=F1',
+        '=F2',
+        '=F3',
+        '=F4',
+        '=F5',
+        '=F6',
+        '=F7',
+        '=F8',
+        '=F9',
+        '=FA',
+        '=FB',
+        '=FC',
+        '=FD',
+        '=FE',
+        '=FF'
     );
 
     /**
@@ -424,8 +424,7 @@ class Zend_Mime
         $str,
         $lineLength = self::LINELENGTH,
         $lineEnd = self::LINEEND
-    )
-    {
+    ) {
         $out = '';
         $str = self::_encodeQuotedPrintable($str);
 
@@ -486,9 +485,11 @@ class Zend_Mime
      * @return string
      */
     public static function encodeQuotedPrintableHeader(
-        $str, $charset, $lineLength = self::LINELENGTH, $lineEnd = self::LINEEND
-    )
-    {
+        $str,
+        $charset,
+        $lineLength = self::LINELENGTH,
+        $lineEnd = self::LINEEND
+    ) {
         // Reduce line-length by the length of the required delimiter, charsets and encoding
         $prefix     = sprintf('=?%s?Q?', $charset);
         $lineLength = $lineLength - strlen($prefix) - 3;
@@ -497,14 +498,16 @@ class Zend_Mime
 
         // Mail-Header required chars have to be encoded also:
         $str = str_replace(
-            array('?', ' ', '_', ','), array('=3F', '=20', '=5F', '=2C'), $str
+            array('?', ' ', '_', ','),
+            array('=3F', '=20', '=5F', '=2C'),
+            $str
         );
 
         // initialize first line, we need it anyways
-        $lines = array(0 => "");
+        $lines = array(0 => '');
 
         // Split encoded text into separate lines
-        $tmp = "";
+        $tmp = '';
         while (strlen($str) > 0) {
             $currentLine = max(count($lines) - 1, 0);
             $token       = self::getNextQuotedPrintableToken($str);
@@ -519,7 +522,7 @@ class Zend_Mime
                 } else {
                     $lines[$currentLine] .= $tmp;
                 }
-                $tmp = "";
+                $tmp = '';
             }
             // don't forget to append the rest to the last line
             if (strlen($str) == 0) {
@@ -529,7 +532,7 @@ class Zend_Mime
 
         // assemble the lines together by pre- and appending delimiters, charset, encoding.
         for ($i = 0; $i < count($lines); $i++) {
-            $lines[$i] = " " . $prefix . $lines[$i] . "?=";
+            $lines[$i] = ' ' . $prefix . $lines[$i] . '?=';
         }
         $str = trim(implode($lineEnd, $lines));
 
@@ -544,7 +547,7 @@ class Zend_Mime
      */
     private static function getNextQuotedPrintableToken($str)
     {
-        if (substr($str, 0, 1) == "=") {
+        if (substr($str, 0, 1) == '=') {
             $token = substr($str, 0, 3);
         } else {
             $token = substr($str, 0, 1);
@@ -563,16 +566,20 @@ class Zend_Mime
      * @return string
      */
     public static function encodeBase64Header(
-        $str, $charset, $lineLength = self::LINELENGTH, $lineEnd = self::LINEEND
-    )
-    {
+        $str,
+        $charset,
+        $lineLength = self::LINELENGTH,
+        $lineEnd = self::LINEEND
+    ) {
         $prefix          = '=?' . $charset . '?B?';
         $suffix          = '?=';
         $remainingLength = $lineLength - strlen($prefix) - strlen($suffix);
 
         $encodedValue = self::encodeBase64($str, $remainingLength, $lineEnd);
         $encodedValue = str_replace(
-            $lineEnd, $suffix . $lineEnd . ' ' . $prefix, $encodedValue
+            $lineEnd,
+            $suffix . $lineEnd . ' ' . $prefix,
+            $encodedValue
         );
         $encodedValue = $prefix . $encodedValue . $suffix;
 
@@ -589,9 +596,10 @@ class Zend_Mime
      * @return string
      */
     public static function encodeBase64(
-        $str, $lineLength = self::LINELENGTH, $lineEnd = self::LINEEND
-    )
-    {
+        $str,
+        $lineLength = self::LINELENGTH,
+        $lineEnd = self::LINEEND
+    ) {
         return rtrim(chunk_split(base64_encode($str), $lineLength, $lineEnd));
     }
 

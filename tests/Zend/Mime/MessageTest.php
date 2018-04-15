@@ -31,7 +31,6 @@
  */
 class Zend_Mime_MessageTest extends PHPUnit\Framework\TestCase
 {
-
     public function testMultiPart()
     {
         $msg = new Zend_Mime_Message();  // No Parts
@@ -41,11 +40,11 @@ class Zend_Mime_MessageTest extends PHPUnit\Framework\TestCase
     public function testSetGetParts()
     {
         $msg = new Zend_Mime_Message();  // No Parts
-        $p = $msg->getParts();
+        $p   = $msg->getParts();
         $this->assertInternalType('array', $p);
         $this->assertTrue(count($p) == 0);
 
-        $p2 = array();
+        $p2   = array();
         $p2[] = new Zend_Mime_Part('This is a test');
         $p2[] = new Zend_Mime_Part('This is another test');
         $msg->setParts($p2);
@@ -57,10 +56,10 @@ class Zend_Mime_MessageTest extends PHPUnit\Framework\TestCase
     public function testGetMime()
     {
         $msg = new Zend_Mime_Message();  // No Parts
-        $m = $msg->getMime();
+        $m   = $msg->getMime();
         $this->assertTrue($m instanceof Zend_Mime);
 
-        $msg = new Zend_Mime_Message();  // No Parts
+        $msg  = new Zend_Mime_Message();  // No Parts
         $mime = new Zend_Mime('1234');
         $msg->setMime($mime);
         $m2 = $msg->getMime();
@@ -71,14 +70,14 @@ class Zend_Mime_MessageTest extends PHPUnit\Framework\TestCase
     public function testGenerate()
     {
         $msg = new Zend_Mime_Message();  // No Parts
-        $p1 = new Zend_Mime_Part('This is a test');
-        $p2 = new Zend_Mime_Part('This is another test');
+        $p1  = new Zend_Mime_Part('This is a test');
+        $p2  = new Zend_Mime_Part('This is another test');
         $msg->addPart($p1);
         $msg->addPart($p2);
-        $res = $msg->generateMessage();
-        $mime = $msg->getMime();
+        $res      = $msg->generateMessage();
+        $mime     = $msg->getMime();
         $boundary = $mime->boundary();
-        $p1 = strpos($res, $boundary);
+        $p1       = strpos($res, $boundary);
         // $boundary must appear once for every mime part
         $this->assertTrue($p1 !== false);
         if ($p1) {

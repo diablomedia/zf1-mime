@@ -139,8 +139,8 @@ class Zend_Mime_Message
             $mime = $this->getMime();
 
             $boundaryLine = $mime->boundaryLine($EOL);
-            $body = 'This is a message in Mime Format.  If you see this, '
-                  . "your mail reader does not support this format." . $EOL;
+            $body         = 'This is a message in Mime Format.  If you see this, '
+                  . 'your mail reader does not support this format.' . $EOL;
 
             foreach (array_keys($this->_parts) as $p) {
                 $body .= $boundaryLine
@@ -245,9 +245,10 @@ class Zend_Mime_Message
      * @return Zend_Mime_Message
      */
     public static function createFromMessage(
-        $message, $boundary, $EOL = Zend_Mime::LINEEND
-    )
-    {
+        $message,
+        $boundary,
+        $EOL = Zend_Mime::LINEEND
+    ) {
         $parts = Zend_Mime_Decode::splitMessageStruct($message, $boundary, $EOL);
 
         $res = new self();

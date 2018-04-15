@@ -40,9 +40,8 @@ class Zend_MimeTest extends PHPUnit\Framework\TestCase
 
         // check instantiating with arbitrary boundary string
         $myBoundary = 'mySpecificBoundary';
-        $m3 = new Zend_Mime($myBoundary);
+        $m3         = new Zend_Mime($myBoundary);
         $this->assertEquals($m3->boundary(), $myBoundary);
-
     }
 
     public function testIsPrintable_notPrintable()
@@ -58,11 +57,11 @@ class Zend_MimeTest extends PHPUnit\Framework\TestCase
     public function testQP()
     {
         $text = "This is a cool Test Text with special chars: ����\n"
-              . "and with multiple lines���� some of the Lines are long, long"
-              . ", long, long, long, long, long, long, long, long, long, long"
-              . ", long, long, long, long, long, long, long, long, long, long"
-              . ", long, long, long, long, long, long, long, long, long, long"
-              . ", long, long, long, long and with ����";
+              . 'and with multiple lines���� some of the Lines are long, long'
+              . ', long, long, long, long, long, long, long, long, long, long'
+              . ', long, long, long, long, long, long, long, long, long, long'
+              . ', long, long, long, long, long, long, long, long, long, long'
+              . ', long, long, long, long and with ����';
 
         $qp = Zend_Mime::encodeQuotedPrintable($text);
         $this->assertEquals(quoted_printable_decode($qp), $text);
@@ -73,8 +72,8 @@ class Zend_MimeTest extends PHPUnit\Framework\TestCase
      */
     public function testEncodeQuotedPrintableWhenTextHasZeroAtTheEnd()
     {
-        $raw = str_repeat('x',72) . '0';
-        $quoted = Zend_Mime::encodeQuotedPrintable($raw, 72);
+        $raw      = str_repeat('x', 72) . '0';
+        $quoted   = Zend_Mime::encodeQuotedPrintable($raw, 72);
         $expected = quoted_printable_decode($quoted);
         $this->assertEquals($expected, $raw);
     }
@@ -98,13 +97,13 @@ class Zend_MimeTest extends PHPUnit\Framework\TestCase
     public static function dataTestEncodeMailHeaderQuotedPrintable()
     {
         return array(
-            array("äöü", "UTF-8", "=?UTF-8?Q?=C3=A4=C3=B6=C3=BC?="),
-            array("äöü ", "UTF-8", "=?UTF-8?Q?=C3=A4=C3=B6=C3=BC?="),
-            array("Gimme more €", "UTF-8", "=?UTF-8?Q?Gimme=20more=20=E2=82=AC?="),
-            array("Alle meine Entchen schwimmen in dem See, schwimmen in dem See, Köpfchen in das Wasser, Schwänzchen in die Höh!", "UTF-8", "=?UTF-8?Q?Alle=20meine=20Entchen=20schwimmen=20in=20dem=20See=2C=20?=
+            array('äöü', 'UTF-8', '=?UTF-8?Q?=C3=A4=C3=B6=C3=BC?='),
+            array('äöü ', 'UTF-8', '=?UTF-8?Q?=C3=A4=C3=B6=C3=BC?='),
+            array('Gimme more €', 'UTF-8', '=?UTF-8?Q?Gimme=20more=20=E2=82=AC?='),
+            array('Alle meine Entchen schwimmen in dem See, schwimmen in dem See, Köpfchen in das Wasser, Schwänzchen in die Höh!', 'UTF-8', '=?UTF-8?Q?Alle=20meine=20Entchen=20schwimmen=20in=20dem=20See=2C=20?=
  =?UTF-8?Q?schwimmen=20in=20dem=20See=2C=20K=C3=B6pfchen=20in=20das=20?=
- =?UTF-8?Q?Wasser=2C=20Schw=C3=A4nzchen=20in=20die=20H=C3=B6h!?="),
-            array("ääääääääääääääääääääääääääääääääää", "UTF-8", "=?UTF-8?Q?=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4?="),
+ =?UTF-8?Q?Wasser=2C=20Schw=C3=A4nzchen=20in=20die=20H=C3=B6h!?='),
+            array('ääääääääääääääääääääääääääääääääää', 'UTF-8', '=?UTF-8?Q?=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4=C3=A4?='),
         );
     }
 
@@ -120,10 +119,10 @@ class Zend_MimeTest extends PHPUnit\Framework\TestCase
     public static function dataTestEncodeMailHeaderBase64()
     {
         return array(
-            array("äöü", "UTF-8", "=?UTF-8?B?w6TDtsO8?="),
-            array("Alle meine Entchen schwimmen in dem See, schwimmen in dem See, Köpfchen in das Wasser, Schwänzchen in die Höh!", "UTF-8", "=?UTF-8?B?QWxsZSBtZWluZSBFbnRjaGVuIHNjaHdpbW1lbiBpbiBkZW0gU2VlLCBzY2h3?=
+            array('äöü', 'UTF-8', '=?UTF-8?B?w6TDtsO8?='),
+            array('Alle meine Entchen schwimmen in dem See, schwimmen in dem See, Köpfchen in das Wasser, Schwänzchen in die Höh!', 'UTF-8', '=?UTF-8?B?QWxsZSBtZWluZSBFbnRjaGVuIHNjaHdpbW1lbiBpbiBkZW0gU2VlLCBzY2h3?=
  =?UTF-8?B?aW1tZW4gaW4gZGVtIFNlZSwgS8O2cGZjaGVuIGluIGRhcyBXYXNzZXIsIFNj?=
- =?UTF-8?B?aHfDpG56Y2hlbiBpbiBkaWUgSMO2aCE=?="),
+ =?UTF-8?B?aHfDpG56Y2hlbiBpbiBkaWUgSMO2aCE=?='),
         );
     }
 
@@ -132,17 +131,17 @@ class Zend_MimeTest extends PHPUnit\Framework\TestCase
      */
     public function testLineLengthInQuotedPrintableHeaderEncoding()
     {
-        $subject = "Alle meine Entchen schwimmen in dem See, schwimmen in dem See, Köpfchen in das Wasser, Schwänzchen in die Höh!";
-        $encoded = Zend_Mime::encodeQuotedPrintableHeader($subject, "UTF-8", 100);
-        foreach(explode(Zend_Mime::LINEEND, $encoded) AS $line ) {
-            if(strlen($line) > 100) {
-                $this->fail("Line '".$line."' is ".strlen($line)." chars long, only 100 allowed.");
+        $subject = 'Alle meine Entchen schwimmen in dem See, schwimmen in dem See, Köpfchen in das Wasser, Schwänzchen in die Höh!';
+        $encoded = Zend_Mime::encodeQuotedPrintableHeader($subject, 'UTF-8', 100);
+        foreach (explode(Zend_Mime::LINEEND, $encoded) as $line) {
+            if (strlen($line) > 100) {
+                $this->fail("Line '" . $line . "' is " . strlen($line) . ' chars long, only 100 allowed.');
             }
         }
-        $encoded = Zend_Mime::encodeQuotedPrintableHeader($subject, "UTF-8", 40);
-        foreach(explode(Zend_Mime::LINEEND, $encoded) AS $line ) {
-            if(strlen($line) > 40) {
-                $this->fail("Line '".$line."' is ".strlen($line)." chars long, only 40 allowed.");
+        $encoded = Zend_Mime::encodeQuotedPrintableHeader($subject, 'UTF-8', 40);
+        foreach (explode(Zend_Mime::LINEEND, $encoded) as $line) {
+            if (strlen($line) > 40) {
+                $this->fail("Line '" . $line . "' is " . strlen($line) . ' chars long, only 40 allowed.');
             }
         }
 

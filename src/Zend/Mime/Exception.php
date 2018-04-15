@@ -28,4 +28,3 @@
 class Zend_Mime_Exception extends Zend_Exception
 {
 }
-

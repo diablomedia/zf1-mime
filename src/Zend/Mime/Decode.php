@@ -57,7 +57,7 @@ class Zend_Mime_Decode
         $start = $p + 3 + strlen($boundary);
 
         while (($p = strpos($body, '--' . $boundary . "\n", $start)) !== false) {
-            $res[] = substr($body, $start, $p-$start);
+            $res[] = substr($body, $start, $p - $start);
             $start = $p + 3 + strlen($boundary);
         }
 
@@ -84,9 +84,10 @@ class Zend_Mime_Decode
      * @throws Zend_Exception
      */
     public static function splitMessageStruct(
-        $message, $boundary, $EOL = Zend_Mime::LINEEND
-    )
-    {
+        $message,
+        $boundary,
+        $EOL = Zend_Mime::LINEEND
+    ) {
         $parts = self::splitMime($message, $boundary);
         if (count($parts) <= 0) {
             return null;
@@ -116,9 +117,11 @@ class Zend_Mime_Decode
      * @return null
      */
     public static function splitMessage(
-        $message, &$headers, &$body, $EOL = Zend_Mime::LINEEND
-    )
-    {
+        $message,
+        &$headers,
+        &$body,
+        $EOL = Zend_Mime::LINEEND
+    ) {
         // check for valid header at first line
         $firstline = strtok($message, "\n");
         if (!preg_match('%^[^\s]+[^:]*:%', $firstline)) {
@@ -128,10 +131,12 @@ class Zend_Mime_Decode
                 array(
                     "\r",
                     "\n"
-                ), array(
+                ),
+                array(
                     '',
                     $EOL
-                ), $message
+                ),
+                $message
             );
 
             return null;
@@ -141,15 +146,15 @@ class Zend_Mime_Decode
         // default is set new line
         if (strpos($message, $EOL . $EOL)) {
             list($headers, $body) = explode($EOL . $EOL, $message, 2);
-            // next is the standard new line
+        // next is the standard new line
         } else {
             if ($EOL != "\r\n" && strpos($message, "\r\n\r\n")) {
                 list($headers, $body) = explode("\r\n\r\n", $message, 2);
-                // next is the other "standard" new line
+            // next is the other "standard" new line
             } else {
                 if ($EOL != "\n" && strpos($message, "\n\n")) {
                     list($headers, $body) = explode("\n\n", $message, 2);
-                    // at last resort find anything that looks like a new line
+                // at last resort find anything that looks like a new line
                 } else {
                     @list($headers, $body) =
                         @preg_split("%([\r\n]+)\\1%U", $message, 2);
@@ -158,7 +163,8 @@ class Zend_Mime_Decode
         }
 
         $headers = iconv_mime_decode_headers(
-            $headers, ICONV_MIME_DECODE_CONTINUE_ON_ERROR
+            $headers,
+            ICONV_MIME_DECODE_CONTINUE_ON_ERROR
         );
 
         if ($headers === false) {
@@ -210,9 +216,10 @@ class Zend_Mime_Decode
      * @return string|array|null wanted part or all parts as array($firstName => firstPart, partname => value)
      */
     public static function splitHeaderField(
-        $field, $wantedPart = null, $firstName = 0
-    )
-    {
+        $field,
+        $wantedPart = null,
+        $firstName = 0
+    ) {
         $wantedPart = strtolower($wantedPart);
         $firstName  = strtolower($firstName);
 

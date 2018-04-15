@@ -250,7 +250,7 @@ class Zend_Mime_Part
 
         if ($this->boundary) {
             $contentType .= ';' . $EOL
-                            . " boundary=\"" . $this->boundary . '"';
+                            . ' boundary="' . $this->boundary . '"';
         }
 
         $headers[] = array(

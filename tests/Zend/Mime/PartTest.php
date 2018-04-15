@@ -43,13 +43,13 @@ class Zend_Mime_PartTest extends PHPUnit\Framework\TestCase
     {
         $this->testText = 'safdsafsa�lg ��gd�� sd�jg�sdjg�ld�gksd�gj�sdfg�dsj�gjsd�gj�dfsjg�dsfj�djs�g kjhdkj '
                        . 'fgaskjfdh gksjhgjkdh gjhfsdghdhgksdjhg';
-        $this->part = new Zend_Mime_Part($this->testText);
-        $this->part->encoding = Zend_Mime::ENCODING_BASE64;
-        $this->part->type = "text/plain";
-        $this->part->filename = 'test.txt';
+        $this->part              = new Zend_Mime_Part($this->testText);
+        $this->part->encoding    = Zend_Mime::ENCODING_BASE64;
+        $this->part->type        = 'text/plain';
+        $this->part->filename    = 'test.txt';
         $this->part->disposition = 'attachment';
-        $this->part->charset = 'iso8859-1';
-        $this->part->id = '4711';
+        $this->part->charset     = 'iso8859-1';
+        $this->part->id          = '4711';
     }
 
     public function testHeaders()
@@ -75,11 +75,11 @@ class Zend_Mime_PartTest extends PHPUnit\Framework\TestCase
         $this->assertEquals($this->testText, base64_decode($content));
         // Test with quotedPrintable Encoding:
         $this->part->encoding = Zend_Mime::ENCODING_QUOTEDPRINTABLE;
-        $content = $this->part->getContent();
+        $content              = $this->part->getContent();
         $this->assertEquals($this->testText, quoted_printable_decode($content));
         // Test with 8Bit encoding
         $this->part->encoding = Zend_Mime::ENCODING_8BIT;
-        $content = $this->part->getContent();
+        $content              = $this->part->getContent();
         $this->assertEquals($this->testText, $content);
     }
 
@@ -89,26 +89,26 @@ class Zend_Mime_PartTest extends PHPUnit\Framework\TestCase
         $original = file_get_contents($testfile);
 
         // Test Base64
-        $fp = fopen($testfile,'rb');
+        $fp = fopen($testfile, 'rb');
         $this->assertInternalType('resource', $fp);
-        $part = new Zend_Mime_Part($fp);
+        $part           = new Zend_Mime_Part($fp);
         $part->encoding = Zend_Mime::ENCODING_BASE64;
-        $fp2 = $part->getEncodedStream();
+        $fp2            = $part->getEncodedStream();
         $this->assertInternalType('resource', $fp2);
         $encoded = stream_get_contents($fp2);
         fclose($fp);
-        $this->assertEquals(base64_decode($encoded),$original);
+        $this->assertEquals(base64_decode($encoded), $original);
 
         // test QuotedPrintable
-        $fp = fopen($testfile,'rb');
+        $fp = fopen($testfile, 'rb');
         $this->assertInternalType('resource', $fp);
-        $part = new Zend_Mime_Part($fp);
+        $part           = new Zend_Mime_Part($fp);
         $part->encoding = Zend_Mime::ENCODING_QUOTEDPRINTABLE;
-        $fp2 = $part->getEncodedStream();
+        $fp2            = $part->getEncodedStream();
         $this->assertInternalType('resource', $fp2);
         $encoded = stream_get_contents($fp2);
         fclose($fp);
-        $this->assertEquals(quoted_printable_decode($encoded),$original);
+        $this->assertEquals(quoted_printable_decode($encoded), $original);
     }
 
     /**
@@ -118,5 +118,4 @@ class Zend_Mime_PartTest extends PHPUnit\Framework\TestCase
     {
         $this->assertEquals($this->testText, $this->part->getRawContent());
     }
-
 }
