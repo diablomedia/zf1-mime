@@ -208,7 +208,7 @@ class Zend_Mime_Part
      *
      * @param  string $EOL Line end; defaults to {@link Zend_Mime::LINEEND}
      * @throws Zend_Mime_Exception
-     * @return string
+     * @return string|false
      */
     public function getContent($EOL = Zend_Mime::LINEEND)
     {
@@ -222,7 +222,7 @@ class Zend_Mime_Part
     /**
      * Get the RAW unencoded content from this part
      *
-     * @return string
+     * @return string|false
      */
     public function getRawContent()
     {

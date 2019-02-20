@@ -612,7 +612,7 @@ class Zend_Mime
     {
         // This string needs to be somewhat unique
         if ($boundary === null) {
-            $this->_boundary = '=_' . md5(microtime(1) . self::$makeUnique++);
+            $this->_boundary = '=_' . md5(microtime(true) . self::$makeUnique++);
         } else {
             $this->_boundary = $boundary;
         }

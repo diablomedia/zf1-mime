@@ -115,7 +115,7 @@ EOD;
         $res = Zend_Mime_Message::createFromMessage($text, '=_af4357ef34b786aae1491b0a2d14399f');
 
         $parts = $res->getParts();
-        $this->assertEquals(2, count($parts));
+        $this->assertCount(2, $parts);
 
         $part1 = $parts[0];
         $this->assertEquals('application/octet-stream', $part1->type);

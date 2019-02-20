@@ -124,7 +124,7 @@ class Zend_Mime_Decode
     ) {
         // check for valid header at first line
         $firstline = strtok($message, "\n");
-        if (!preg_match('%^[^\s]+[^:]*:%', $firstline)) {
+        if (!preg_match('%^[^\s]+[^:]*:%', (string) $firstline)) {
             $headers = array();
             // TODO: we're ignoring \r for now - is this function fast enough and is it safe to asume noone needs \r?
             $body = str_replace(
@@ -199,7 +199,7 @@ class Zend_Mime_Decode
      *
      * @param  string $type       content-type
      * @param  string $wantedPart the wanted part, else an array with all parts is returned
-     * @return string|array|null wanted part or all parts as array('type' => content-type, partname => value)
+     * @return string|array|null|false wanted part or all parts as array('type' => content-type, partname => value)
      */
     public static function splitContentType($type, $wantedPart = null)
     {
@@ -213,21 +213,21 @@ class Zend_Mime_Decode
      * @param  string     $wantedPart the wanted part, else an array with all parts is returned
      * @param  int|string $firstName  key name for the first part
      * @throws Zend_Exception
-     * @return string|array|null wanted part or all parts as array($firstName => firstPart, partname => value)
+     * @return string|array|null|false wanted part or all parts as array($firstName => firstPart, partname => value)
      */
     public static function splitHeaderField(
         $field,
         $wantedPart = null,
         $firstName = 0
     ) {
-        $wantedPart = strtolower($wantedPart);
-        $firstName  = strtolower($firstName);
+        $wantedPart = strtolower((string) $wantedPart);
+        $firstName  = strtolower((string) $firstName);
 
         // special case - a bit optimized
         if ($firstName === $wantedPart) {
             $field = strtok($field, ';');
 
-            return $field[0] == '"' ? substr($field, 1, -1) : $field;
+            return $field[0] == '"' ? substr((string) $field, 1, -1) : $field;
         }
 
         $field = $firstName . '=' . $field;
