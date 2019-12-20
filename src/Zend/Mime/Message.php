@@ -55,6 +55,7 @@ class Zend_Mime_Message
      * Sets the given array of Zend_Mime_Parts as the array for the message
      *
      * @param array $parts
+     * @return void
      */
     public function setParts($parts)
     {
@@ -65,6 +66,7 @@ class Zend_Mime_Message
      * Append a new Zend_Mime_Part to the current message
      *
      * @param Zend_Mime_Part $part
+     * @return void
      */
     public function addPart(Zend_Mime_Part $part)
     {
@@ -92,6 +94,7 @@ class Zend_Mime_Message
      * Zend_Mime for generating the boundary.
      *
      * @param Zend_Mime $mime
+     * @return void
      */
     public function setMime(Zend_Mime $mime)
     {

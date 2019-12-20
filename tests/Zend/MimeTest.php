@@ -31,6 +31,9 @@
  */
 class Zend_MimeTest extends PHPUnit\Framework\TestCase
 {
+    /**
+     * @return void
+     */
     public function testBoundary()
     {
         // check boundary for uniqueness
@@ -44,16 +47,25 @@ class Zend_MimeTest extends PHPUnit\Framework\TestCase
         $this->assertEquals($m3->boundary(), $myBoundary);
     }
 
+    /**
+     * @return void
+     */
     public function testIsPrintable_notPrintable()
     {
         $this->assertFalse(Zend_Mime::isPrintable('Test with special chars: �����'));
     }
 
+    /**
+     * @return void
+     */
     public function testIsPrintable_isPrintable()
     {
         $this->assertTrue(Zend_Mime::isPrintable('Test without special chars'));
     }
 
+    /**
+     * @return void
+     */
     public function testQP()
     {
         $text = "This is a cool Test Text with special chars: ����\n"
@@ -69,6 +81,8 @@ class Zend_MimeTest extends PHPUnit\Framework\TestCase
 
     /**
      * @group ZF-10074
+     *
+     * @return void
      */
     public function testEncodeQuotedPrintableWhenTextHasZeroAtTheEnd()
     {
@@ -78,6 +92,9 @@ class Zend_MimeTest extends PHPUnit\Framework\TestCase
         $this->assertEquals($expected, $raw);
     }
 
+    /**
+     * @return void
+     */
     public function testBase64()
     {
         $content = str_repeat("\x88\xAA\xAF\xBF\x29\x88\xAA\xAF\xBF\x29\x88\xAA\xAF", 4);
@@ -88,12 +105,19 @@ class Zend_MimeTest extends PHPUnit\Framework\TestCase
     /**
      * @group ZF-1688
      * @dataProvider dataTestEncodeMailHeaderQuotedPrintable
+     * @param string $str
+     * @param string $charset
+     * @param string $result
+     * @return void
      */
     public function testEncodeMailHeaderQuotedPrintable($str, $charset, $result)
     {
         $this->assertEquals($result, Zend_Mime::encodeQuotedPrintableHeader($str, $charset));
     }
 
+    /**
+     * @return array[]
+     */
     public static function dataTestEncodeMailHeaderQuotedPrintable()
     {
         return array(
@@ -110,12 +134,19 @@ class Zend_MimeTest extends PHPUnit\Framework\TestCase
     /**
      * @group ZF-1688
      * @dataProvider dataTestEncodeMailHeaderBase64
+     * @param string $str
+     * @param string $charset
+     * @param string $result
+     * @return void
      */
     public function testEncodeMailHeaderBase64($str, $charset, $result)
     {
         $this->assertEquals($result, Zend_Mime::encodeBase64Header($str, $charset));
     }
 
+    /**
+     * @return array[]
+     */
     public static function dataTestEncodeMailHeaderBase64()
     {
         return array(
@@ -128,6 +159,7 @@ class Zend_MimeTest extends PHPUnit\Framework\TestCase
 
     /**
      * @group ZF-1688
+     * @return void
      */
     public function testLineLengthInQuotedPrintableHeaderEncoding()
     {

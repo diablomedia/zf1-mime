@@ -31,12 +31,18 @@
  */
 class Zend_Mime_MessageTest extends PHPUnit\Framework\TestCase
 {
+    /**
+     * @return void
+     */
     public function testMultiPart()
     {
         $msg = new Zend_Mime_Message();  // No Parts
         $this->assertFalse($msg->isMultiPart());
     }
 
+    /**
+     * @return void
+     */
     public function testSetGetParts()
     {
         $msg = new Zend_Mime_Message();  // No Parts
@@ -53,6 +59,9 @@ class Zend_Mime_MessageTest extends PHPUnit\Framework\TestCase
         $this->assertTrue(count($p) == 2);
     }
 
+    /**
+     * @return void
+     */
     public function testGetMime()
     {
         $msg = new Zend_Mime_Message();  // No Parts
@@ -67,6 +76,9 @@ class Zend_Mime_MessageTest extends PHPUnit\Framework\TestCase
         $this->assertEquals('1234', $m2->boundary());
     }
 
+    /**
+     * @return void
+     */
     public function testGenerate()
     {
         $msg = new Zend_Mime_Message();  // No Parts
@@ -93,6 +105,7 @@ class Zend_Mime_MessageTest extends PHPUnit\Framework\TestCase
     /**
      * check if decoding a string into a Zend_Mime_Message object works
      *
+     * @return void
      */
     public function testDecodeMimeMessage()
     {

@@ -192,6 +192,8 @@ class Zend_Mime_Decode
                 $header
             );
         }
+
+        return null;
     }
 
     /**

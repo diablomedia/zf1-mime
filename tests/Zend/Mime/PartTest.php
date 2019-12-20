@@ -37,8 +37,15 @@ class Zend_Mime_PartTest extends PHPUnit\Framework\TestCase
      * @var Zend_Mime_Part
      */
     protected $part = null;
+
+    /**
+     * @var string
+     */
     protected $testText;
 
+    /**
+     * @return void
+     */
     protected function setUp()
     {
         $this->testText = 'safdsafsa�lg ��gd�� sd�jg�sdjg�ld�gksd�gj�sdfg�dsj�gjsd�gj�dfsjg�dsfj�djs�g kjhdkj '
@@ -52,6 +59,9 @@ class Zend_Mime_PartTest extends PHPUnit\Framework\TestCase
         $this->part->id          = '4711';
     }
 
+    /**
+     * @return void
+     */
     public function testHeaders()
     {
         $expectedHeaders = array('Content-Type: text/plain',
@@ -68,6 +78,9 @@ class Zend_Mime_PartTest extends PHPUnit\Framework\TestCase
         }
     }
 
+    /**
+     * @return void
+     */
     public function testContentEncoding()
     {
         // Test with base64 encoding
@@ -83,15 +96,18 @@ class Zend_Mime_PartTest extends PHPUnit\Framework\TestCase
         $this->assertEquals($this->testText, $content);
     }
 
+    /**
+     * @return void
+     */
     public function testStreamEncoding()
     {
         $testfile = realpath(__FILE__);
-        
+
         if ($testfile === false) {
             $this->fail('could not get realpath for ' . __FILE__);
             return;
         }
-        
+
         $original = file_get_contents($testfile);
 
         // Test Base64
@@ -127,6 +143,8 @@ class Zend_Mime_PartTest extends PHPUnit\Framework\TestCase
 
     /**
      * @group ZF-1491
+     *
+     * @return void
      */
     public function testGetRawContentFromPart()
     {
