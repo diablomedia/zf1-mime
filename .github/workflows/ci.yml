@@ -31,7 +31,7 @@ jobs:
       - name: Code Style Check
         run: composer style-check
       - name: Test And Coverage
-        uses: paambaati/codeclimate-action@v2
+        uses: paambaati/codeclimate-action@v2.5.7
         env:
           CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
         with:
