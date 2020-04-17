@@ -31,6 +31,6 @@ jobs:
       - name: Code Style Check
         run: composer style-check
       - name: Test
-        run:
-            - composer test-with-coverage
-            - bash <(curl -s https://codecov.io/bash) -f ./clover.xml
+        run: composer test-with-coverage
+      - name: Upload Coverage
+        run: bash <(curl -s https://codecov.io/bash) -f ./clover.xml
