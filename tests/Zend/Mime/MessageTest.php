@@ -47,7 +47,7 @@ class Zend_Mime_MessageTest extends PHPUnit\Framework\TestCase
     {
         $msg = new Zend_Mime_Message();  // No Parts
         $p   = $msg->getParts();
-        $this->assertInternalType('array', $p);
+        $this->assertIsArray($p);
         $this->assertTrue(count($p) == 0);
 
         $p2   = array();
@@ -55,7 +55,7 @@ class Zend_Mime_MessageTest extends PHPUnit\Framework\TestCase
         $p2[] = new Zend_Mime_Part('This is another test');
         $msg->setParts($p2);
         $p = $msg->getParts();
-        $this->assertInternalType('array', $p);
+        $this->assertIsArray($p);
         $this->assertTrue(count($p) == 2);
     }
 

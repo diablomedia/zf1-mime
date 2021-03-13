@@ -46,7 +46,7 @@ class Zend_Mime_PartTest extends PHPUnit\Framework\TestCase
     /**
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->testText = 'safdsafsa�lg ��gd�� sd�jg�sdjg�ld�gksd�gj�sdfg�dsj�gjsd�gj�dfsjg�dsfj�djs�g kjhdkj '
                        . 'fgaskjfdh gksjhgjkdh gjhfsdghdhgksdjhg';
@@ -74,7 +74,7 @@ class Zend_Mime_PartTest extends PHPUnit\Framework\TestCase
         $actual = $this->part->getHeaders();
 
         foreach ($expectedHeaders as $expected) {
-            $this->assertContains($expected, $actual);
+            $this->assertStringContainsString($expected, $actual);
         }
     }
 
@@ -105,7 +105,6 @@ class Zend_Mime_PartTest extends PHPUnit\Framework\TestCase
 
         if ($testfile === false) {
             $this->fail('could not get realpath for ' . __FILE__);
-            return;
         }
 
         $original = file_get_contents($testfile);
@@ -114,13 +113,12 @@ class Zend_Mime_PartTest extends PHPUnit\Framework\TestCase
         $fp = fopen($testfile, 'rb');
         if ($fp === false) {
             $this->fail('could not open ' . $testfile);
-            return;
         }
-        $this->assertInternalType('resource', $fp);
+        $this->assertIsResource($fp);
         $part           = new Zend_Mime_Part($fp);
         $part->encoding = Zend_Mime::ENCODING_BASE64;
         $fp2            = $part->getEncodedStream();
-        $this->assertInternalType('resource', $fp2);
+        $this->assertIsResource($fp2);
         $encoded = stream_get_contents($fp2);
         fclose($fp);
         $this->assertEquals(base64_decode((string) $encoded), $original);
@@ -129,13 +127,12 @@ class Zend_Mime_PartTest extends PHPUnit\Framework\TestCase
         $fp = fopen($testfile, 'rb');
         if ($fp === false) {
             $this->fail('could not open ' . $testfile);
-            return;
         }
-        $this->assertInternalType('resource', $fp);
+        $this->assertIsResource($fp);
         $part           = new Zend_Mime_Part($fp);
         $part->encoding = Zend_Mime::ENCODING_QUOTEDPRINTABLE;
         $fp2            = $part->getEncodedStream();
-        $this->assertInternalType('resource', $fp2);
+        $this->assertIsResource($fp2);
         $encoded = stream_get_contents($fp2);
         fclose($fp);
         $this->assertEquals(quoted_printable_decode((string) $encoded), $original);
