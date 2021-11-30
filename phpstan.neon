@@ -3,7 +3,7 @@ parameters:
     level: 8
     paths:
         - ./
-    excludes_analyse:
+    excludePaths:
         - %rootDir%/../../../vendor/*
     ignoreErrors:
         # $parts could be null here, so should probably be validated beforehand (or method should return empty array instead of null)

@@ -244,6 +244,7 @@ class Zend_Mime_Message
      * @param  string $message
      * @param  string $boundary
      * @param  string $EOL EOL string; defaults to {@link Zend_Mime::LINEEND}
+     * @phpstan-param non-empty-string $EOL
      * @throws Zend_Exception
      * @return Zend_Mime_Message
      */

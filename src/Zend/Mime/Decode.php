@@ -80,6 +80,7 @@ class Zend_Mime_Decode
      * @param  string $message  raw message content
      * @param  string $boundary boundary as found in content-type
      * @param  string $EOL      EOL string; defaults to {@link Zend_Mime::LINEEND}
+     * @phpstan-param non-empty-string $EOL
      * @return array|null parts as array('header' => array(name => value), 'body' => content), null if no parts found
      * @throws Zend_Exception
      */
@@ -114,6 +115,7 @@ class Zend_Mime_Decode
      * @param  array  $headers output param, array with headers as array(name => value)
      * @param  string $body    output param, content of message
      * @param  string $EOL     EOL string; defaults to {@link Zend_Mime::LINEEND}
+     * @phpstan-param non-empty-string $EOL
      * @return null
      */
     public static function splitMessage(
@@ -156,8 +158,13 @@ class Zend_Mime_Decode
                     list($headers, $body) = explode("\n\n", $message, 2);
                 // at last resort find anything that looks like a new line
                 } else {
-                    @list($headers, $body) =
-                        @preg_split("%([\r\n]+)\\1%U", $message, 2);
+                    $split = @preg_split("%([\r\n]+)\\1%U", $message, 2);
+                    if ($split !== false) {
+                        list($headers, $body) = $split;
+                    } else {
+                        $headers = '';
+                        $body    = '';
+                    }
                 }
             }
         }

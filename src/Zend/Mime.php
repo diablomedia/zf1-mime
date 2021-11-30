@@ -600,6 +600,10 @@ class Zend_Mime
         $lineLength = self::LINELENGTH,
         $lineEnd = self::LINEEND
     ) {
+        if ($lineLength < 1) {
+            $lineLength = self::LINELENGTH;
+            trigger_error('lineLength cannot be less than 1', E_USER_WARNING);
+        }
         return rtrim(chunk_split(base64_encode($str), $lineLength, $lineEnd));
     }
 
