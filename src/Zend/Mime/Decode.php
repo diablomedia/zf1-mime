@@ -160,7 +160,7 @@ class Zend_Mime_Decode
                 } else {
                     $split = @preg_split("%([\r\n]+)\\1%U", $message, 2);
                     if ($split !== false) {
-                        list($headers, $body) = $split;
+                        @list($headers, $body) = $split;
                     } else {
                         $headers = '';
                         $body    = '';
