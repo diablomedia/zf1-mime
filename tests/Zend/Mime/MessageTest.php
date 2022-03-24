@@ -66,13 +66,13 @@ class Zend_Mime_MessageTest extends PHPUnit\Framework\TestCase
     {
         $msg = new Zend_Mime_Message();  // No Parts
         $m   = $msg->getMime();
-        $this->assertTrue($m instanceof Zend_Mime);
+        $this->assertInstanceOf(Zend_Mime::class, $m);
 
         $msg  = new Zend_Mime_Message();  // No Parts
         $mime = new Zend_Mime('1234');
         $msg->setMime($mime);
         $m2 = $msg->getMime();
-        $this->assertTrue($m2 instanceof Zend_Mime);
+        $this->assertInstanceOf(Zend_Mime::class, $m2);
         $this->assertEquals('1234', $m2->boundary());
     }
 
