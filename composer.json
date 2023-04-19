@@ -12,7 +12,7 @@
     "require": {
         "php": "^7.4 || ~8.0.0 || ~8.1.0 || ~8.2.0",
         "ext-iconv": "*",
-        "diablomedia/zendframework1-exception": "dev-master as 1.0.0"
+        "diablomedia/zendframework1-exception": "^1.0.0"
     },
     "autoload": {
         "psr-0": {
