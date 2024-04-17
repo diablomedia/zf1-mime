@@ -148,15 +148,15 @@ class Zend_Mime_Decode
         // default is set new line
         if (strpos($message, $EOL . $EOL)) {
             list($headers, $body) = explode($EOL . $EOL, $message, 2);
-        // next is the standard new line
+            // next is the standard new line
         } else {
             if ($EOL != "\r\n" && strpos($message, "\r\n\r\n")) {
                 list($headers, $body) = explode("\r\n\r\n", $message, 2);
-            // next is the other "standard" new line
+                // next is the other "standard" new line
             } else {
                 if ($EOL != "\n" && strpos($message, "\n\n")) {
                     list($headers, $body) = explode("\n\n", $message, 2);
-                // at last resort find anything that looks like a new line
+                    // at last resort find anything that looks like a new line
                 } else {
                     $split = @preg_split("%([\r\n]+)\\1%U", $message, 2);
                     if ($split !== false) {
