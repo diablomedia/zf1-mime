@@ -112,7 +112,7 @@ class Zend_Mime_Decode
      * The charset of the returned headers depend on your iconv settings.
      *
      * @param  string $message raw message with header and optional content
-     * @param  array  $headers output param, array with headers as array(name => value)
+     * @param  array $headers output param, array with headers as array(name => value)
      * @param  string $body    output param, content of message
      * @param  string $EOL     EOL string; defaults to {@link Zend_Mime::LINEEND}
      * @phpstan-param non-empty-string $EOL
