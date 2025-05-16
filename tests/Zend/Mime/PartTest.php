@@ -114,7 +114,6 @@ class Zend_Mime_PartTest extends PHPUnit\Framework\TestCase
         if ($fp === false) {
             $this->fail('could not open ' . $testfile);
         }
-        $this->assertIsResource($fp);
         $part           = new Zend_Mime_Part($fp);
         $part->encoding = Zend_Mime::ENCODING_BASE64;
         $fp2            = $part->getEncodedStream();
@@ -128,7 +127,6 @@ class Zend_Mime_PartTest extends PHPUnit\Framework\TestCase
         if ($fp === false) {
             $this->fail('could not open ' . $testfile);
         }
-        $this->assertIsResource($fp);
         $part           = new Zend_Mime_Part($fp);
         $part->encoding = Zend_Mime::ENCODING_QUOTEDPRINTABLE;
         $fp2            = $part->getEncodedStream();
