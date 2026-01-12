@@ -12,7 +12,7 @@
     "require": {
         "php": "~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0",
         "ext-iconv": "*",
-        "diablomedia/zendframework1-exception": "dev-php-85 as 1.1.1"
+        "diablomedia/zendframework1-exception": "^1.1.1"
     },
     "autoload": {
         "psr-0": {
@@ -49,6 +49,5 @@
         "allow-plugins": {
             "phpro/grumphp-shim": true
         }
-    },
-    "minimum-stability": "dev"
+    }
 }
